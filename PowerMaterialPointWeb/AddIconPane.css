@@ -1,0 +1,27 @@
+﻿body {
+    background: #fff;
+    margin: 0;
+    padding: 15px;
+}
+
+#loading-icons {
+    animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.icons-category button {
+    font-family: 'Material Icons';
+    background: none;
+    border: 0;
+    font-size: 32px;
+    cursor: pointer;
+}
