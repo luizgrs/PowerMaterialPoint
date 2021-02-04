@@ -18,10 +18,86 @@
     }
 }
 
+.icons-category {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.icons-category + .icons-category {
+    margin-top: 15px;
+}
+
+    legend {
+        font-weight: bold;
+        color: #000 !important; 
+    }
+
 .icons-category button {
-    font-family: 'Material Icons';
     background: none;
     border: 0;
-    font-size: 32px;
     cursor: pointer;
+    font-size: 32px;
+    color: inherit;
+}
+
+#color-picker {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+}
+
+#loading-icons ~ #header {
+    display: none;
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    border-bottom: 2px solid #edebe9;
+    padding: 15px;
+    margin: -15px -15px 0;
+}
+
+#messages:not(:empty) {
+    margin-top: 5px;
+}
+
+#messages > div {
+    font-size: 10px;
+    text-align: center;
+    background-color: cornsilk;
+    padding: 5px;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
+
+.mat-sharp button {
+    font-family: 'Material Icons Sharp';
+}
+
+.mat-round button {
+    font-family: 'Material Icons Round';
+}
+
+.mat-fill button {
+    font-family: 'Material Icons';
+}
+
+.mat-two-tone button {
+    font-family: 'Material Icons Two Tone';
+}
+
+.mat-outlined button {
+    font-family: 'Material Icons Outlined';
 }
