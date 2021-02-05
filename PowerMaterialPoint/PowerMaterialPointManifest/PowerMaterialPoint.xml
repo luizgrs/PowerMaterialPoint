@@ -113,8 +113,8 @@
     <Resources>
       <bt:Images>
         <bt:Image id="Icon16" DefaultValue="~remoteAppUrl/images/command_button_16x16.png" />
-        <bt:Image id="Icon32" DefaultValue="~remoteAppUrl/Images/command_button_32x32.png" />
-        <bt:Image id="Icon80" DefaultValue="~remoteAppUrl/Images/command_button_80x80.png" />
+        <bt:Image id="Icon32" DefaultValue="~remoteAppUrl/images/command_button_32x32.png" />
+        <bt:Image id="Icon80" DefaultValue="~remoteAppUrl/images/command_button_80x80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="InsertIconPane.Url" DefaultValue="~remoteAppUrl/AddIconPane.html" />
