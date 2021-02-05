@@ -73,6 +73,7 @@
     <Content Include="AddIconPane.css" />
     <Content Include="AddIconPane.html" />
     <Content Include="AddIconPane.js" />
+    <Content Include="LearnMore.html" />
     <Content Include="material_icons.json" />
     <None Include="Properties\PublishProfiles\Dev.pubxml" />
     <Content Include="images\command_button_16x16.png" />

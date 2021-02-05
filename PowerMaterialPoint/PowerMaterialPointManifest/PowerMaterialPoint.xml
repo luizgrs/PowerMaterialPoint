@@ -118,7 +118,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="InsertIconPane.Url" DefaultValue="~remoteAppUrl/AddIconPane.html" />
-        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="~remoteAppUrl/LearnMore.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
