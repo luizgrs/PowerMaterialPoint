@@ -145,8 +145,9 @@
         const picker = new Picker({
             parent: colorPickerDiv,
             color: initColor,
+            alpha: false,
             onDone: color => {
-                colorPickerDiv.style.background = color.rgbaString
+                colorPickerDiv.style.background = color.rgbString
                 optionsChanged();
             }
         });
