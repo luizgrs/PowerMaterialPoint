@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Published:70EDFC97-B41D-43C5-B751-7C00AD999804-->
+<!--Created:ce44715c-8c4e-446b-879c-ea9ebe0f09c8-->
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+
+  <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+  <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+  <Id>5c87a0de-2a0c-4ba5-b3d3-aeaf2c70c8c5</Id>
+
+  <!--Version. Updates from the store only get triggered if there is a version change. -->
+  <Version>1.0.0.0</Version>
+  <ProviderName>Luiz Soares</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+  <DisplayName DefaultValue="PowerMaterialPoint" />
+  <Description DefaultValue="Enables you to insert icons from Google Material Iconset in your presentation" />
+  <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+  <IconUrl DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/images/command_button_32x32.png" />
+
+  <SupportUrl DefaultValue="http://www.contoso.com" />
+  <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
+  <AppDomains>
+    <AppDomain>AppDomain1</AppDomain>
+    <AppDomain>AppDomain2</AppDomain>
+    <AppDomain>AppDomain3</AppDomain>
+  </AppDomains>
+  <!--End Basic Settings. -->
+  
+  <!--Begin TaskPane Mode integration. This section is used if there are no VersionOverrides or if the Office client version does not support add-in commands. -->
+  <Hosts>
+    <Host Name="Presentation" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/AddIconPane.html" />
+  </DefaultSettings>
+  <!-- End TaskPane Mode integration.  -->
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!-- Begin Add-in Commands Mode integration. -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    
+    <!-- The Hosts node is required. -->
+    <Hosts>
+      <!-- Each host can have a different set of commands. -->
+      <!-- Excel host is Workbook, Word host is Document, and PowerPoint host is Presentation. -->
+      <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest. -->
+      <Host xsi:type="Presentation">
+        <!-- Form factor. Currently only DesktopFormFactor is supported. -->
+        <DesktopFormFactor>
+          <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
+          <GetStarted>
+            <!-- Title of the Getting Started callout. The resid attribute points to a ShortString resource -->
+            <Title resid="GetStarted.Title" />
+
+            <!-- Description of the Getting Started callout. resid points to a LongString resource -->
+            <Description resid="GetStarted.Description" />
+
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl" />
+          </GetStarted>
+
+          <!-- PrimaryCommandSurface is the main Office Ribbon. -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
+            <OfficeTab id="TabInsert">  
+              <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
+              <Group id="PowerMaterialPoint.InsertIcon">
+                <!-- Label for your group. resid must point to a ShortString resource. -->
+                <Label resid="InsertIconCommand.Label" />
+                <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+                <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+                <Icon>
+                  <bt:Image size="16" resid="Icon16" />
+                  <bt:Image size="32" resid="Icon32" />
+                  <bt:Image size="80" resid="Icon80" />
+                </Icon>
+
+                <!-- Control. It can be of type "Button" or "Menu". -->
+                <Control xsi:type="Button" id="AddIconButton">
+                  <Label resid="InsertIconCommand.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="InsertIconCommand.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="InsertIconCommand.Description" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16" />
+                    <bt:Image size="32" resid="Icon32" />
+                    <bt:Image size="80" resid="Icon80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>InsertIconPane</TaskpaneId>
+                    <SourceLocation resid="InsertIconPane.Url" />
+                    <Title resid="InsertIconPane.Title" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    
+    <!-- You can use resources across hosts and form factors. -->
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/images/command_button_16x16.png" />
+        <bt:Image id="Icon32" DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/images/command_button_32x32.png" />
+        <bt:Image id="Icon80" DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/images/command_button_80x80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="InsertIconPane.Url" DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/AddIconPane.html" />
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://luizgrs.github.io/PowerMaterialPoint/PowerMaterialPointWeb/LearnMore.html" />
+      </bt:Urls>
+      <!-- ShortStrings max characters==125. -->
+      <bt:ShortStrings>
+        <bt:String id="InsertIconCommand.Label" DefaultValue="Material Icons" />
+        <bt:String id="GetStarted.Title" DefaultValue="Add icons from Google Material to your presentations!" />
+        <bt:String id="InsertIconPane.Title" DefaultValue="Insert Material Icons" />
+      </bt:ShortStrings>
+      <!-- LongStrings max characters==250. -->
+      <bt:LongStrings>
+        <bt:String id="InsertIconCommand.Description" DefaultValue="Click to insert Material Icons" />
+        <bt:String id="GetStarted.Description" DefaultValue="PowerMaterialPoint loaded succesfully. Go to the INSERT tab and click the 'Material Icon' button to insert icons." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+  <!-- End Add-in Commands Mode integration. -->
+
+</OfficeApp>
